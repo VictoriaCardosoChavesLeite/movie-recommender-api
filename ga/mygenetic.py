@@ -32,13 +32,32 @@ class MyGeneticAlgorithm(Algorithm):
 
     
     def evaluate(self, individual):
-
+        
         if len(individual) != len(set(individual)):
             return (0.0, )
         
         if len(list(set(individual) - set(self.all_ids))) > 0:
             return (0.0, )
         
+        ###################################################
+        #Pegar os gêneros favoritos do usuário
+        user_ratings = RatingsRepository.find_by_userid(self.db, self.query_search) #Filmes que o usuário avaliou
+        user_movies_ids = [rating.movieId for rating in user_ratings] #Pega os IDs dos filmes que o usuário avaliou e armazena em uma lista
+        user_movies = MovieRepository.find_all_ids(self.db,user_movies_ids) #Pegar as informações dos filmes
+
+        user_genres = set() #Coleção de objetos onde serão armazenados os gêneros
+        for movie in user_movies:
+            genres = movie.genres.split("|")#Pega o genêro do filme tirando as barras
+            user_genres.update(genres)#Armazena o gênero
+
+        #Pegar os gêneros dos filmes que serão recomendados para o usuário, a lógica é a mesma de pegar os gêneros favoritos do usuário
+        recommend_movies = MovieRepository.find_all_ids(self.db,individual)
+        recommend_genres = set()
+        for movie in recommend_movies:
+            genres = movie.genres.split("|")
+            recommend_genres.update(genres)
+        ###################################################
+
         ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
 
         if len(ratings_movies) > 0:
