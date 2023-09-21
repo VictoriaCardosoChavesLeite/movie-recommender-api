@@ -58,12 +58,29 @@ class MyGeneticAlgorithm(Algorithm):
             recommend_genres.update(genres)
         ###################################################
 
+        # Fetch ratings for recommended movies
         ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
 
         if len(ratings_movies) > 0:
-            mean_ = np.mean([obj_.rating for obj_ in ratings_movies])
+            # Calculate the average rating of recommended movies
+            mean_rating = np.mean([obj_.rating for obj_ in ratings_movies])
         else:
-            mean_ = 0.0
+            # If no ratings are found, assign a low fitness score
+            mean_rating = 0.0
 
-        return (mean_, )
+        # Define a threshold for a "good" recommendation (you can adjust this)
+        good_recommendation_threshold = 3.5
+
+        # Calculate the fitness score based on the average rating
+        # A higher score indicates a better recommendation
+        fitness_score = mean_rating / good_recommendation_threshold
+
+        # Ensure the fitness score is within the range [0, 1]
+        fitness_score = max(0.0, min(fitness_score, 1.0))
+
+        return (fitness_score, )
+
+        
+
+        
 
