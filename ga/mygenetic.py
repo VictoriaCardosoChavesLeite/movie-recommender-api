@@ -58,29 +58,54 @@ class MyGeneticAlgorithm(Algorithm):
             recommend_genres.update(genres)
         ###################################################
 
-        # Fetch ratings for recommended movies
-        ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
+            # Verificar se há interseção entre os gêneros favoritos do usuário e os gêneros dos filmes recomendados
+        intersection_genres = user_genres.intersection(recommend_genres)
 
-        if len(ratings_movies) > 0:
-            # Calculate the average rating of recommended movies
-            mean_rating = np.mean([obj_.rating for obj_ in ratings_movies])
-        else:
-            # If no ratings are found, assign a low fitness score
+        if intersection_genres:
+            # Se houver interseção, calcular a média das classificações apenas para os filmes que têm gêneros favoritos
+            ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
             mean_rating = 0.0
+            num_ratings = 0
 
-        # Define a threshold for a "good" recommendation (you can adjust this)
-        good_recommendation_threshold = 3.5
+            for obj_ in ratings_movies:
+                if obj_.movieId in user_movies_ids:
+                    mean_rating += obj_.rating
+                    num_ratings += 1
 
-        # Calculate the fitness score based on the average rating
-        # A higher score indicates a better recommendation
-        fitness_score = mean_rating / good_recommendation_threshold
+            if num_ratings > 0:
+                mean_rating /= num_ratings
+            else:
+                mean_rating = 0.0
 
-        # Ensure the fitness score is within the range [0, 1]
-        fitness_score = max(0.0, min(fitness_score, 1.0))
+            # Ajustar o limite para uma "boa" recomendação
+            good_recommendation_threshold = 3.5
+
+            # Calcular a pontuação de fitness com base na média das classificações
+            # Uma pontuação mais alta indica uma melhor recomendação
+            fitness_score = (mean_rating / good_recommendation_threshold) + 0.5
+
+            # Garantir que a pontuação de fitness esteja dentro do intervalo [0, 1]
+            fitness_score = max(0.0, min(fitness_score, 1.0))
+        else:
+            # Se não houver interseção, calcular a média das classificações para todos os filmes recomendados
+            ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
+            mean_rating = 0.0
+            num_ratings = len(ratings_movies)
+
+            if num_ratings > 0:
+                mean_rating = np.mean([obj_.rating for obj_ in ratings_movies])
+            else:
+                mean_rating = 0.0
+
+            # Ajustar o limite para uma "boa" recomendação
+            good_recommendation_threshold = 3.5
+
+            # Calcular a pontuação de fitness com base na média das classificações
+            # Uma pontuação mais alta indica uma melhor recomendação
+            fitness_score = mean_rating / good_recommendation_threshold
+
+            # Garantir que a pontuação de fitness esteja dentro do intervalo [0, 1]
+            fitness_score = max(0.0, min(fitness_score, 1.0))
 
         return (fitness_score, )
-
-        
-
-        
 
