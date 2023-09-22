@@ -1,4 +1,8 @@
-fastapi[all]
-SQLAlchemy[all]
-uvicorn[all]
-deap[all]
+fastapi[all]~=0.103.1
+SQLAlchemy[all]~=2.0.21
+uvicorn[all]~=0.23.2
+deap[all]~=1.4.1
+pydantic~=2.3.0
+numpy~=1.26.0
+requests~=2.31.0
+scipy~=1.11.2

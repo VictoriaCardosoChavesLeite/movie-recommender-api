@@ -32,19 +32,80 @@ class MyGeneticAlgorithm(Algorithm):
 
     
     def evaluate(self, individual):
-
+        
         if len(individual) != len(set(individual)):
             return (0.0, )
         
         if len(list(set(individual) - set(self.all_ids))) > 0:
             return (0.0, )
         
-        ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
+        ###################################################
+        #Pegar os gêneros favoritos do usuário
+        user_ratings = RatingsRepository.find_by_userid(self.db, self.query_search) #Filmes que o usuário avaliou
+        user_movies_ids = [rating.movieId for rating in user_ratings] #Pega os IDs dos filmes que o usuário avaliou e armazena em uma lista
+        user_movies = MovieRepository.find_all_ids(self.db,user_movies_ids) #Pegar as informações dos filmes
 
-        if len(ratings_movies) > 0:
-            mean_ = np.mean([obj_.rating for obj_ in ratings_movies])
+        user_genres = set() #Coleção de objetos onde serão armazenados os gêneros
+        for movie in user_movies:
+            genres = movie.genres.split("|")#Pega o genêro do filme tirando as barras
+            user_genres.update(genres)#Armazena o gênero
+
+        #Pegar os gêneros dos filmes que serão recomendados para o usuário, a lógica é a mesma de pegar os gêneros favoritos do usuário
+        recommend_movies = MovieRepository.find_all_ids(self.db,individual)
+        recommend_genres = set()
+        for movie in recommend_movies:
+            genres = movie.genres.split("|")
+            recommend_genres.update(genres)
+        ###################################################
+
+            # Verificar se há interseção entre os gêneros favoritos do usuário e os gêneros dos filmes recomendados
+        intersection_genres = user_genres.intersection(recommend_genres)
+
+        if intersection_genres:
+            # Se houver interseção, calcular a média das classificações apenas para os filmes que têm gêneros favoritos
+            ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
+            mean_rating = 0.0
+            num_ratings = 0
+
+            for obj_ in ratings_movies:
+                if obj_.movieId in user_movies_ids:
+                    mean_rating += obj_.rating
+                    num_ratings += 1
+
+            if num_ratings > 0:
+                mean_rating /= num_ratings
+            else:
+                mean_rating = 0.0
+
+            # Ajustar o limite para uma "boa" recomendação
+            good_recommendation_threshold = 3.5
+
+            # Calcular a pontuação de fitness com base na média das classificações
+            # Uma pontuação mais alta indica uma melhor recomendação
+            fitness_score = (mean_rating / good_recommendation_threshold) + 0.5
+
+            # Garantir que a pontuação de fitness esteja dentro do intervalo [0, 1]
+            fitness_score = max(0.0, min(fitness_score, 1.0))
         else:
-            mean_ = 0.0
+            # Se não houver interseção, calcular a média das classificações para todos os filmes recomendados
+            ratings_movies = RatingsRepository.find_by_movieid_list(self.db, individual)
+            mean_rating = 0.0
+            num_ratings = len(ratings_movies)
 
-        return (mean_, )
+            if num_ratings > 0:
+                mean_rating = np.mean([obj_.rating for obj_ in ratings_movies])
+            else:
+                mean_rating = 0.0
+
+            # Ajustar o limite para uma "boa" recomendação
+            good_recommendation_threshold = 3.5
+
+            # Calcular a pontuação de fitness com base na média das classificações
+            # Uma pontuação mais alta indica uma melhor recomendação
+            fitness_score = mean_rating / good_recommendation_threshold
+
+            # Garantir que a pontuação de fitness esteja dentro do intervalo [0, 1]
+            fitness_score = max(0.0, min(fitness_score, 1.0))
+
+        return (fitness_score, )
 
