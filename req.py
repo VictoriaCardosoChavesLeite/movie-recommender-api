@@ -1,6 +1,7 @@
 import requests
 from random import randint, gauss
 from scipy.optimize import differential_evolution
+import matplotlib.pyplot as plt
 
 
 def get_evaluations(user, p_crossover, p_mutation):
@@ -39,7 +40,7 @@ def get_user_array():
 
     user_list = []
 
-    # Generate and print ten random values
+    # Generate and print n random values
     for _ in range(pop_size):
         random_value = randint(start_range, end_range)
         user_list.append(random_value)
@@ -61,13 +62,29 @@ def get_batch_result(p_crossover, p_mutation):
     return get_average_fitness(evaluations), (p_crossover, p_mutation)
 
 
-def get_epoch_result():
+# Initialize an empty list to store your data
+data = []
 
+
+# Create a function to update the plot
+def update_plot():
+    plt.clf()  # Clear the previous plot
+    plt.plot(data)
+    plt.xlabel('Iteração')
+    plt.ylabel('Fitness Média')
+    plt.title('Live Updating Plot')
+    plt.pause(0.1)  # Pause to allow the plot to update
+
+
+def get_epoch_result():
     def objective_function(args):
         x, y = args
         value = get_batch_result(x, y)[0]
 
         print(value, x, y)
+
+        data.append(value)
+        update_plot()
 
         return -value
 
@@ -78,4 +95,6 @@ def get_epoch_result():
     return result
 
 
-print(get_epoch_result())
+get_epoch_result()
+
+plt.show()  # Keep the plot window open
