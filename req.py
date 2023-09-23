@@ -25,7 +25,7 @@ def get_evaluations(user, p_crossover, p_mutation):
     # Check the response
     if response.status_code == 200:
         # Request was successful
-        response = response.json()["logs"]
+        response = response.json()["statisticsData"]
     evaluation = response[-1]["avg"]
 
     return evaluation

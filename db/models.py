@@ -14,6 +14,16 @@ class Movie(Base):
     url_poster: str = Column(String(300), nullable=True)
     imdbId: str = Column(String(10), nullable=True)
 
+    def to_dict(self):
+        return {
+            "movieId": self.movieId,
+            "title": self.title,
+            "year": self.year,
+            "genres":self.genres,
+            "url_poster":self.url_poster,
+            "imdbId":self.imdbId
+        }
+
 
 class Ratings(Base):
 

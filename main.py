@@ -1,3 +1,4 @@
+import json
 from typing import List, Union
 import uvicorn
 from fastapi import FastAPI, Depends, HTTPException, status, Response
@@ -134,9 +135,24 @@ def recommender(configuration: GeneticConfiguration, db: Session = Depends(get_d
     log = my_genetic.get_log()
     best = my_genetic.get_best()
 
-    recommender_movies = MovieRepository.find_all_ids(db, best)
+    recommender_movies = [movie.to_dict() for movie in MovieRepository.find_all_ids(db, best)]
+    config = {
+        "server": "http://127.0.0.1:8000/api/recommender/",
+        "query_search": configuration.query_search,
+        "individual_size": configuration.individual_size,
+        "population_size": configuration.population_size,
+        "p_crossover": my_genetic.P_CROSSOVER,
+        "p_mutation": my_genetic.P_MUTATION,
+        "max_generations": configuration.max_generations,
+        "size_hall_of_fame": configuration.size_hall_of_fame,
+        "seed": configuration.seed
+    }
 
-    return {'logs': log, 'best': recommender_movies}
+    data = {"timestamp": 1695440464204,"configuration":config,'statisticsData': log, 'recommendedMovies': recommender_movies}
+    with open(f"teste[{configuration.query_search}].json", "w") as arquivo_json:
+        json.dump(data, arquivo_json)
+
+    return data
 
 
 

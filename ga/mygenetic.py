@@ -32,14 +32,6 @@ class MyGeneticAlgorithm(Algorithm):
 
     
     def evaluate(self, individual):
-        
-        if len(individual) != len(set(individual)):
-            return (0.0, )
-        
-        if len(list(set(individual) - set(self.all_ids))) > 0:
-            return (0.0, )
-        
-        ###################################################
         #Pegar os gêneros favoritos do usuário
         user_ratings = RatingsRepository.find_by_userid(self.db, self.query_search) #Filmes que o usuário avaliou
         user_movies_ids = [rating.movieId for rating in user_ratings] #Pega os IDs dos filmes que o usuário avaliou e armazena em uma lista
@@ -56,9 +48,8 @@ class MyGeneticAlgorithm(Algorithm):
         for movie in recommend_movies:
             genres = movie.genres.split("|")
             recommend_genres.update(genres)
-        ###################################################
 
-            # Verificar se há interseção entre os gêneros favoritos do usuário e os gêneros dos filmes recomendados
+        # Verificar se há interseção entre os gêneros favoritos do usuário e os gêneros dos filmes recomendados
         intersection_genres = user_genres.intersection(recommend_genres)
 
         if intersection_genres:
