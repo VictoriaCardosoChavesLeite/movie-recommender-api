@@ -1,0 +1,346 @@
+{
+    "timestamp": 1695440464204,
+    "configuration": {
+        "server": "http://127.0.0.1:8000/api/recommender/",
+        "query_search": 124,
+        "individual_size": 10,
+        "population_size": 50,
+        "p_crossover": 0.594626648777422,
+        "p_mutation": 0.2839692912126437,
+        "max_generations": 30,
+        "size_hall_of_fame": 3,
+        "seed": 42
+    },
+    "statisticsData": [
+        {
+            "gen": 0,
+            "nevals": 50,
+            "avg": 0.52,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 1,
+            "nevals": 36,
+            "avg": 0.54,
+            "std": 0.13564659966250536,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 2,
+            "nevals": 38,
+            "avg": 0.61,
+            "std": 0.20712315177207977,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 3,
+            "nevals": 29,
+            "avg": 0.78,
+            "std": 0.2481934729198171,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 4,
+            "nevals": 36,
+            "avg": 0.95,
+            "std": 0.15,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 5,
+            "nevals": 37,
+            "avg": 0.95,
+            "std": 0.15,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 6,
+            "nevals": 38,
+            "avg": 0.97,
+            "std": 0.11874342087037919,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 7,
+            "nevals": 42,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 8,
+            "nevals": 35,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 9,
+            "nevals": 36,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 10,
+            "nevals": 34,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 11,
+            "nevals": 40,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 12,
+            "nevals": 40,
+            "avg": 0.95,
+            "std": 0.15,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 13,
+            "nevals": 37,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 14,
+            "nevals": 47,
+            "avg": 0.95,
+            "std": 0.15,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 15,
+            "nevals": 41,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 16,
+            "nevals": 35,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 17,
+            "nevals": 29,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 18,
+            "nevals": 33,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 19,
+            "nevals": 30,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 20,
+            "nevals": 40,
+            "avg": 0.95,
+            "std": 0.15,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 21,
+            "nevals": 29,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 22,
+            "nevals": 30,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 23,
+            "nevals": 35,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 24,
+            "nevals": 43,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 25,
+            "nevals": 35,
+            "avg": 0.97,
+            "std": 0.11874342087037919,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 26,
+            "nevals": 41,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 27,
+            "nevals": 39,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 28,
+            "nevals": 33,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 29,
+            "nevals": 40,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 30,
+            "nevals": 34,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        }
+    ],
+    "recommendedMovies": [
+        {
+            "movieId": 279,
+            "title": "My Family",
+            "year": 1995,
+            "genres": "Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMGMyZWJlOTAtNmE2ZS00YWNmLTg5MDAtYjY2ZjhhMjRjYTFkXkEyXkFqcGdeQXVyNjMwMjk0MTQ@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0113896"
+        },
+        {
+            "movieId": 497,
+            "title": "Much Ado About Nothing",
+            "year": 1993,
+            "genres": "Comedy|Romance",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BY2Q3YTU4OTgtZTc0My00YmY1LWJmOTQtMmMwNGE2ZjBmNmIxXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_SY150_CR0,0,101,150_.jpg",
+            "imdbId": "0107616"
+        },
+        {
+            "movieId": 608,
+            "title": "Fargo",
+            "year": 1996,
+            "genres": "Comedy|Crime|Drama|Thriller",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY150_CR0,0,101,150_.jpg",
+            "imdbId": "0116282"
+        },
+        {
+            "movieId": 2060,
+            "title": "BASEketball",
+            "year": 1998,
+            "genres": "Comedy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMmZjZDg2ZjItYTVkNC00YWRmLThmZTMtNTYxNTI5MWM4NjU4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0131857"
+        },
+        {
+            "movieId": 4403,
+            "title": "Fall of the House of Usher, The (House of Usher)",
+            "year": 1960,
+            "genres": "Horror",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMjMyNDk3Mzg5OF5BMl5BanBnXkFtZTgwMDg5NTAxNzE@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0053925"
+        },
+        {
+            "movieId": 4911,
+            "title": "Jabberwocky",
+            "year": 1977,
+            "genres": "Adventure|Comedy|Fantasy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BYzE1NTUxYzMtYWUyYi00NDFjLWI3MTgtMjE4MmE4NTM4YTExXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0076221"
+        },
+        {
+            "movieId": 5337,
+            "title": "Delirious",
+            "year": 1991,
+            "genres": "Comedy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMTA0NTcwMjAwMzdeQTJeQWpwZ15BbWU3MDg4MTA4MzQ@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0101701"
+        },
+        {
+            "movieId": 64167,
+            "title": "Dinotopia",
+            "year": 2002,
+            "genres": "Adventure|Fantasy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BYWRlNzVkNDMtZTc5Ni00Y2I0LWI1MTQtN2Y4MTYzNTYzNjE0XkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0233044"
+        },
+        {
+            "movieId": 105720,
+            "title": "Thief of Paris, The (Le voleur)",
+            "year": 1967,
+            "genres": "Comedy|Crime|Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMzE4ZDM2MmEtNzJjNy00NDhkLTgxMGMtMDg4MjdjMjE0MDkwXkEyXkFqcGdeQXVyNzgzODI1OTE@._V1_SY150_CR6,0,101,150_.jpg",
+            "imdbId": "0062457"
+        },
+        {
+            "movieId": 150596,
+            "title": "Doctor Who: The Husbands of River Song",
+            "year": 2015,
+            "genres": "Comedy|Drama|Sci-Fi",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BYmFhYTU1MjAtN2RhNS00ZmU2LTkzMjEtMDU2YzE1NWY5MTcxXkEyXkFqcGdeQXVyMTEzNjA2NzM@._V1_SY150_CR62,0,101,150_.jpg",
+            "imdbId": "4701546"
+        }
+    ]
+}

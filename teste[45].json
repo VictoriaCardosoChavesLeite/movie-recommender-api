@@ -1,0 +1,346 @@
+{
+    "timestamp": 1695440464204,
+    "configuration": {
+        "server": "http://127.0.0.1:8000/api/recommender/",
+        "query_search": 45,
+        "individual_size": 10,
+        "population_size": 50,
+        "p_crossover": 0.7019285230971548,
+        "p_mutation": 0.2003766257024644,
+        "max_generations": 30,
+        "size_hall_of_fame": 3,
+        "seed": 42
+    },
+    "statisticsData": [
+        {
+            "gen": 0,
+            "nevals": 50,
+            "avg": 0.69,
+            "std": 0.2426932219902319,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 1,
+            "nevals": 32,
+            "avg": 0.87,
+            "std": 0.2193171219946131,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 2,
+            "nevals": 34,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 3,
+            "nevals": 41,
+            "avg": 0.94,
+            "std": 0.16248076809271922,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 4,
+            "nevals": 44,
+            "avg": 0.96,
+            "std": 0.13564659966250536,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 5,
+            "nevals": 41,
+            "avg": 0.96,
+            "std": 0.13564659966250536,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 6,
+            "nevals": 42,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 7,
+            "nevals": 41,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 8,
+            "nevals": 38,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 9,
+            "nevals": 43,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 10,
+            "nevals": 41,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 11,
+            "nevals": 41,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 12,
+            "nevals": 33,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 13,
+            "nevals": 39,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 14,
+            "nevals": 36,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 15,
+            "nevals": 33,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 16,
+            "nevals": 38,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 17,
+            "nevals": 42,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 18,
+            "nevals": 32,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 19,
+            "nevals": 36,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 20,
+            "nevals": 33,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 21,
+            "nevals": 41,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 22,
+            "nevals": 35,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 23,
+            "nevals": 34,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 24,
+            "nevals": 32,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 25,
+            "nevals": 34,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 26,
+            "nevals": 38,
+            "avg": 0.98,
+            "std": 0.09797958971132714,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 27,
+            "nevals": 46,
+            "avg": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0
+        },
+        {
+            "gen": 28,
+            "nevals": 37,
+            "avg": 0.98,
+            "std": 0.09797958971132713,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 29,
+            "nevals": 38,
+            "avg": 0.97,
+            "std": 0.11874342087037919,
+            "min": 0.5,
+            "max": 1.0
+        },
+        {
+            "gen": 30,
+            "nevals": 36,
+            "avg": 0.99,
+            "std": 0.06999999999999999,
+            "min": 0.5,
+            "max": 1.0
+        }
+    ],
+    "recommendedMovies": [
+        {
+            "movieId": 984,
+            "title": "Pompatus of Love, The",
+            "year": 1996,
+            "genres": "Comedy|Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BM2MyZWNiZjctOGE1NS00YjBhLTk2ODAtOGQwOTQ5MDEwOTNiXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0117357"
+        },
+        {
+            "movieId": 1490,
+            "title": "B*A*P*S",
+            "year": 1997,
+            "genres": "Comedy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BYTMxY2ZjZmQtZTc1MC00ZTBhLTg1MTQtNjhmODQ1OWE4NjBjXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0118663"
+        },
+        {
+            "movieId": 1753,
+            "title": "Half Baked",
+            "year": 1998,
+            "genres": "Comedy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BZWMxZWE1ZjQtYzAyNS00NjEwLTgwM2ItMWI2NWVhZGJiYjk3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0120693"
+        },
+        {
+            "movieId": 2207,
+            "title": "Jamaica Inn",
+            "year": 1939,
+            "genres": "Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BY2U4OGVhOGUtMWQzYS00OGMxLThiZGQtODUzNDkxYTI4NGZhXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0031505"
+        },
+        {
+            "movieId": 4237,
+            "title": "Gleaners & I, The (Les glaneurs et la glaneuse)",
+            "year": 2000,
+            "genres": "Documentary",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMjBlYTUzOTgtNjZlMC00NWNjLWJhMzQtYzllMjg0ZThhNGMzXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SY150_CR1,0,101,150_.jpg",
+            "imdbId": "0247380"
+        },
+        {
+            "movieId": 5178,
+            "title": "Fun",
+            "year": 1994,
+            "genres": "Crime|Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMTYwMjU5NzM5Nl5BMl5BanBnXkFtZTcwMzQ3MTk1NA@@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0109855"
+        },
+        {
+            "movieId": 5341,
+            "title": "Lenny",
+            "year": 1974,
+            "genres": "Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BNWFiODE1YjItYWE5OC00OWUxLThiNjEtNDRlNWU2NDdmMzc3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0071746"
+        },
+        {
+            "movieId": 7063,
+            "title": "Aguirre: The Wrath of God (Aguirre, der Zorn Gottes)",
+            "year": 1972,
+            "genres": "Adventure|Drama",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMTBiNWU1MGQtYWRmYS00NmNlLThiZjQtZTAxNGQ2ODQyMDJhXkEyXkFqcGdeQXVyMTY4MjUxMzgz._V1_SY150_CR1,0,101,150_.jpg",
+            "imdbId": "0068182"
+        },
+        {
+            "movieId": 45928,
+            "title": "Who Killed the Electric Car?",
+            "year": 2006,
+            "genres": "Documentary",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BMTc1MTM0MTA2N15BMl5BanBnXkFtZTcwMTk1OTIzMQ@@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "0489037"
+        },
+        {
+            "movieId": 168174,
+            "title": "Jim Gaffigan: Cinco",
+            "year": 2017,
+            "genres": "Comedy",
+            "url_poster": "https://m.media-amazon.com/images/M/MV5BYzM5N2YyODQtZTkyMC00ZGVhLWJmZmYtZTI3ZGM2ODAzMzA1L2ltYWdlXkEyXkFqcGdeQXVyMzcwMjcwNQ@@._V1_SX101_CR0,0,101,150_.jpg",
+            "imdbId": "6090102"
+        }
+    ]
+}

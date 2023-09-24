@@ -135,7 +135,10 @@ def recommender(configuration: GeneticConfiguration, db: Session = Depends(get_d
     log = my_genetic.get_log()
     best = my_genetic.get_best()
 
+    # Cria uma lista de filmes recomendados convertendo cada filme para um dicionário
     recommender_movies = [movie.to_dict() for movie in MovieRepository.find_all_ids(db, best)]
+
+    # Define um dicionário de configuração para a chamada da API
     config = {
         "server": "http://127.0.0.1:8000/api/recommender/",
         "query_search": configuration.query_search,
@@ -148,7 +151,10 @@ def recommender(configuration: GeneticConfiguration, db: Session = Depends(get_d
         "seed": configuration.seed
     }
 
-    data = {"timestamp": 1695440464204,"configuration":config,'statisticsData': log, 'recommendedMovies': recommender_movies}
+    # Cria um dicionário de dados que será armazenado em um arquivo JSON
+    data = {"timestamp": 1695440464204, "configuration": config, 'statisticsData': log, 'recommendedMovies': recommender_movies}
+
+    # Abre um arquivo JSON para escrever e armazena os dados no arquivo
     with open(f"teste[{configuration.query_search}].json", "w") as arquivo_json:
         json.dump(data, arquivo_json)
 

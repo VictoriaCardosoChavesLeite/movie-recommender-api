@@ -3,55 +3,55 @@ from random import randint, gauss
 from scipy.optimize import differential_evolution
 import matplotlib.pyplot as plt
 
-
+# Função para obter avaliações da API com base em um usuário, probabilidade de crossover e probabilidade de mutação
 def get_evaluations(user, p_crossover, p_mutation):
-    # Define the URL
+    # Define a URL da API
     url = "http://127.0.0.1:8000/api/recommender"
 
-    # Define the parameters as a dictionary
+    # Define os parâmetros como um dicionário
     parameters = {
         "query_search": user,
         "individual_size": 10,
-        "population_size": 30,
+        "population_size": 50,
         "p_crossover": p_crossover,
         "p_mutation": p_mutation,
-        "max_generations": 20,
+        "max_generations": 30,
         "size_hall_of_fame": 3,
         "seed": 42
     }
 
-    # Send a POST request with the parameters
+    # Envia uma solicitação POST com os parâmetros
     response = requests.post(url, json=parameters)
 
-    # Check the response
+    # Verifica a resposta
     if response.status_code == 200:
-        # Request was successful
-        response = response.json()["statisticsData"]
+        # A solicitação foi bem-sucedida
+        response = response.json()["statisticsData"]#Pega os parametros do usuário
     evaluation = response[-1]["avg"]
 
     return evaluation
 
-
+# Função para gerar uma lista de usuários aleatórios
 def get_user_array():
-    # Define the range (inclusive)
-    start_range = 1  # Replace with your desired start value
-    end_range = 611  # Replace with your desired end value
+    # Define o intervalo (inclusive)
+    start_range = 1  # Substitua pelo valor de início desejado
+    end_range = 611  # Substitua pelo valor final desejado
     pop_size = 3
 
     user_list = []
 
-    # Generate and print n random values
+    # Gera e armazena valores aleatórios
     for _ in range(pop_size):
         random_value = randint(start_range, end_range)
         user_list.append(random_value)
 
     return user_list
 
-
+# Função para calcular a média de uma lista de avaliações
 def get_average_fitness(evaluations):
     return sum(evaluations) / len(evaluations)
 
-
+# Função para obter o resultado em lote para uma dada probabilidade de crossover e probabilidade de mutação
 def get_batch_result(p_crossover, p_mutation):
     user_array = get_user_array()
     evaluations = []
@@ -59,23 +59,21 @@ def get_batch_result(p_crossover, p_mutation):
         evaluation = get_evaluations(user, p_crossover, p_mutation)
         evaluations.append(evaluation)
 
-    return get_average_fitness(evaluations), (p_crossover, p_mutation)
+    return get_average_fitness(evaluations), (p_crossover, p_mutation), user_array
 
-
-# Initialize an empty list to store your data
+# Inicializa uma lista vazia para armazenar os dados
 data = []
 
-
-# Create a function to update the plot
+# Função para atualizar o gráfico
 def update_plot():
-    plt.clf()  # Clear the previous plot
+    plt.clf()  # Limpa o gráfico anterior
     plt.plot(data)
     plt.xlabel('Iteração')
     plt.ylabel('Fitness Média')
-    plt.title('Live Updating Plot')
-    plt.pause(0.1)  # Pause to allow the plot to update
+    plt.title('Gráfico Atualizado em Tempo Real')
+    plt.pause(0.1)  # Pausa para permitir a atualização do gráfico
 
-
+# Função para obter o resultado da época
 def get_epoch_result():
     def objective_function(args):
         x, y = args
@@ -94,7 +92,7 @@ def get_epoch_result():
 
     return result
 
-
+# Chama a função get_epoch_result para otimização
 get_epoch_result()
 
-plt.show()  # Keep the plot window open
+plt.show()  # Mantém a janela do gráfico aberta
