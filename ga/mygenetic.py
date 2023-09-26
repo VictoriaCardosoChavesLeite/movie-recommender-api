@@ -30,20 +30,25 @@ class MyGeneticAlgorithm(Algorithm):
         self.query_search = query_search
         
 
-    
+
     def evaluate(self, individual):
-        #Pegar os gêneros favoritos do usuário
-        user_ratings = RatingsRepository.find_by_userid(self.db, self.query_search) #Filmes que o usuário avaliou
-        user_movies_ids = [rating.movieId for rating in user_ratings] #Pega os IDs dos filmes que o usuário avaliou e armazena em uma lista
-        user_movies = MovieRepository.find_all_ids(self.db,user_movies_ids) #Pegar as informações dos filmes
+        # Pegar os gêneros favoritos do usuário
+        user_ratings = RatingsRepository.find_by_userid(self.db, self.query_search)  # Filmes que o usuário avaliou
+        user_movies_ids = [rating.movieId for rating in user_ratings]  # Pega os IDs dos filmes que o usuário avaliou e armazena em uma lista
+        user_movies = MovieRepository.find_all_ids(self.db, user_movies_ids)  # Pegar as informações dos filmes
 
-        user_genres = set() #Coleção de objetos onde serão armazenados os gêneros
+        # Criar um dicionário que mapeia os IDs dos filmes às notas do usuário
+        user_ratings_dict = {rating.movieId: rating.rating for rating in user_ratings}
+
+        user_genres = set()
         for movie in user_movies:
-            genres = movie.genres.split("|")#Pega o genêro do filme tirando as barras
-            user_genres.update(genres)#Armazena o gênero
+            rating = user_ratings_dict.get(movie.movieId)
+            if rating >= 3.7:
+                genres = movie.genres.split("|")
+                user_genres.update(genres)
 
-        #Pegar os gêneros dos filmes que serão recomendados para o usuário, a lógica é a mesma de pegar os gêneros favoritos do usuário
-        recommend_movies = MovieRepository.find_all_ids(self.db,individual)
+        # Pegar os gêneros dos filmes que serão recomendados para o usuário, a lógica é a mesma de pegar os gêneros favoritos do usuário
+        recommend_movies = MovieRepository.find_all_ids(self.db, individual)
         recommend_genres = set()
         for movie in recommend_movies:
             genres = movie.genres.split("|")
@@ -60,7 +65,9 @@ class MyGeneticAlgorithm(Algorithm):
 
             for obj_ in ratings_movies:
                 if obj_.movieId in user_movies_ids:
-                    mean_rating += obj_.rating
+                    # Obter a nota do usuário para o filme atual
+                    user_rating = user_ratings_dict.get(obj_.movieId, 0.0)
+                    mean_rating += user_rating
                     num_ratings += 1
 
             if num_ratings > 0:
@@ -69,7 +76,7 @@ class MyGeneticAlgorithm(Algorithm):
                 mean_rating = 0.0
 
             # Ajustar o limite para uma "boa" recomendação
-            good_recommendation_threshold = 3.5
+            good_recommendation_threshold = 3.7
 
             # Calcular a pontuação de fitness com base na média das classificações
             # Uma pontuação mais alta indica uma melhor recomendação
@@ -89,7 +96,7 @@ class MyGeneticAlgorithm(Algorithm):
                 mean_rating = 0.0
 
             # Ajustar o limite para uma "boa" recomendação
-            good_recommendation_threshold = 3.5
+            good_recommendation_threshold = 3.7
 
             # Calcular a pontuação de fitness com base na média das classificações
             # Uma pontuação mais alta indica uma melhor recomendação
@@ -99,4 +106,3 @@ class MyGeneticAlgorithm(Algorithm):
             fitness_score = max(0.0, min(fitness_score, 1.0))
 
         return (fitness_score, )
-
